@@ -2,31 +2,26 @@ package main
 
 import (
 	"fmt"
+	"sync"
 )
 
-type Vertex struct {
-	X, Y int
+func goroutine(s string, wg *sync.WaitGroup) {
+	defer wg.Done()
+	for i := 0; i < 5; i++ {
+		fmt.Println(s)
+	}
 }
 
-func (v Vertex) Plus() int {
-	return v.X + v.Y
-}
-
-func (v Vertex) String() string {
-	return fmt.Sprintf("X is %v! Y is %v!\n", v.X, v.Y)
-}
-
-func q1() {
-	v := Vertex{3, 4}
-	fmt.Println(v.Plus())
-}
-
-func q2() {
-	v := Vertex{3, 4}
-	fmt.Println(v)
+func normal(s string) {
+	for i := 0; i < 5; i++ {
+		fmt.Println(s)
+	}
 }
 
 func main() {
-	q1()
-	q2()
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go goroutine("world", &wg)
+	normal("hello")
+	wg.Wait()
 }
