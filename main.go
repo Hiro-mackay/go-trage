@@ -3,6 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	var i = 1
-	fmt.Println(i)
+	m := map[string][]string{
+		"something": []string{"a", "b", "c"},
+		"nothing":   []string{},
+	}
+
+	v, ok := m["nothing"]
+	fmt.Println(v, ok)
 }
