@@ -1,39 +1,45 @@
 package main
 
-type Vertex struct {
-	x, y int
+import "fmt"
+
+type Human interface {
+	Say() string
 }
 
-func (v Vertex) Area() int {
-	return v.x * v.y
+type Person struct {
+	Name string
 }
 
-func (v *Vertex) Scale(i int) {
-	v.x = v.x * i
-	v.y = v.y * i
+func (p *Person) Say() string {
+	p.Name = "Mr." + p.Name
+	fmt.Println("Hello", p.Name)
+	return p.Name
 }
 
-type Vertex3D struct {
-	Vertex
-	z int
+type Dog struct {
+	Name string
 }
 
-func (v Vertex3D) Area3D() int {
-	return v.Area() * v.z
+func (d Dog) Say() string {
+	fmt.Println("Bark")
+	return "Dog"
 }
 
-func (v *Vertex3D) Scale3D(i int) {
-	v.Scale(i)
-	v.z = v.z * i
-}
+func Drive(human Human) {
+	if human.Say() == "Mr.Mike" {
+		fmt.Println("Drive")
+	} else {
+		fmt.Println("Get out")
+	}
 
-func New(x, y, z int) *Vertex3D {
-	return &Vertex3D{Vertex{x, y}, z}
 }
 
 func main() {
-	v := New(3, 4, 5)
-	v.Scale(10)
-	println(v.Area3D())
+	var mike Human = &Person{Name: "Mike"}
+	Drive(mike)
+	var x Human = &Person{Name: "X"}
+	Drive(x)
 
+	var dog Dog = Dog{Name: "Dog"}
+	Drive(dog) // Ops! This is not a human. But Dog struct has Say() method. So, it is a Human interface.
 }
