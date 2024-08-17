@@ -2,19 +2,16 @@ package main
 
 import "fmt"
 
-func do(i interface{}) {
-	switch v := i.(type) {
-	case int:
-		fmt.Println("int", v)
-	case string:
-		fmt.Println("string", v)
-	default:
-		fmt.Printf("unknown type '%T'\n", v)
-	}
+type Person struct {
+	Name string
+	Age  int
+}
+
+func (p Person) String() string {
+	return fmt.Sprintf("My name is %v.", p.Name)
 }
 
 func main() {
-	do(21)
-	do("hello")
-	do(true)
+	mike := Person{"Mike", 22}
+	fmt.Println(mike)
 }
