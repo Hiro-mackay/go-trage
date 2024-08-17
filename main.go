@@ -1,20 +1,44 @@
 package main
 
-func goroutine(s []int, c chan int) {
-	defer close(c)
-	sum := 0
-	for _, v := range s {
-		sum += v
-		c <- sum
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+func Producer(ch chan int, i int) {
+	ch <- i * 2
+}
+
+func Consumer(ch chan int, wg *sync.WaitGroup) {
+	for i := range ch {
+		func() {
+			defer wg.Done()
+			fmt.Println("process", i*1000)
+		}()
 	}
+
+	fmt.Println("chanel closed")
+
 }
 
 func main() {
-	s := []int{1, 2, 3, 4, 5}
-	c := make(chan int)
-	go goroutine(s, c)
-	for i := range c {
-		println(i)
+
+	var wg sync.WaitGroup
+	ch := make(chan int)
+
+	// Producer
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go Producer(ch, i)
 	}
+
+	// Consumer
+	go Consumer(ch, &wg)
+	wg.Wait()
+	close(ch)
+
+	time.Sleep(1 * time.Second)
+	fmt.Println("DONE")
 
 }
