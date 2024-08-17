@@ -1,28 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type UserNotFound struct {
-	Username string
+type Vertex struct {
+	X, Y int
 }
 
-func (e *UserNotFound) Error() string {
-	return fmt.Sprintf("User not found %v", e.Username)
+func (v Vertex) Plus() int {
+	return v.X + v.Y
 }
 
-func MyFunc() error {
-
-	ok := false
-
-	if ok {
-		return nil
-	}
-
-	return &UserNotFound{Username: "gopher"}
+func (v Vertex) String() string {
+	return fmt.Sprintf("X is %v! Y is %v!\n", v.X, v.Y)
 }
+
+func q1() {
+	v := Vertex{3, 4}
+	fmt.Println(v.Plus())
+}
+
+func q2() {
+	v := Vertex{3, 4}
+	fmt.Println(v)
+}
+
 func main() {
-	if err := MyFunc(); err != nil {
-		fmt.Println(err)
-	}
-
+	q1()
+	q2()
 }
