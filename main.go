@@ -1,13 +1,11 @@
 package main
 
-import "fmt"
+func cal(price, quantity int) (amount int) {
+	amount = price * quantity
+	return
+}
 
 func main() {
-	m := map[string][]string{
-		"something": []string{"a", "b", "c"},
-		"nothing":   []string{},
-	}
-
-	v, ok := m["nothing"]
-	fmt.Println(v, ok)
+	r := cal(100, 10)
+	println(r)
 }
