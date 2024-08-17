@@ -1,36 +1,21 @@
 package main
 
-import (
-	"fmt"
-	"slices"
-)
-
-func q1() {
-	l := []int{100, 300, 23, 11, 23, 2, 4, 6, 4}
-	fmt.Println(slices.Min(l))
-}
-
-func q2() {
-	m := map[string]int{
-		"apple":  200,
-		"banana": 300,
-		"grapes": 150,
-		"orange": 80,
-		"papaya": 500,
-		"kiwi":   90,
-	}
-
-	sum := 0
-
-	for _, v := range m {
-		sum += v
-	}
-
-	fmt.Println(sum)
-
-}
+import "fmt"
 
 func main() {
-	q1()
-	q2()
+	var i int = 100
+	var j int = 200
+	var p1 *int
+	var p2 *int
+	p1 = &i // 100
+	fmt.Println(*p1)
+	p2 = &j // 200
+	fmt.Println(*p2)
+	i = *p1 + *p2 // 100 + 200 & *&i -> 300
+	fmt.Println(i)
+	p2 = p1 //100
+	fmt.Println(*p2)
+	j = *p2 + i // 200 + 300
+	fmt.Println(j)
+
 }
