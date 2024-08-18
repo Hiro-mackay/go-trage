@@ -2,21 +2,13 @@ package main
 
 import (
 	"fmt"
+	"go-trade/lib"
 )
 
-func goroutine(s []string, c chan string) {
-	sum := ""
-	for _, v := range s {
-		sum += v
-		c <- sum
-	}
-}
-
 func main() {
-	words := []string{"test1!", "test2!", "test3!", "test4!"}
-	c := make(chan string)
-	go goroutine(words, c)
-	for w := range c {
-		fmt.Println(w)
-	}
+	s := []int{1, 2, 3, 4, 5}
+	fmt.Println(lib.Average(s))
+
+	person := lib.Person{Name: "John", Age: 25}
+	fmt.Println(person)
 }
