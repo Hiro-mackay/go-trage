@@ -1,36 +1,43 @@
 package main
 
-func Producer(ch chan int) {
-	for i := 0; i < 10; i++ {
-		ch <- i
-	}
-	close(ch)
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+type Counter struct {
+	v   map[string]int
+	mux sync.Mutex
 }
 
-func double(ch1 chan int, ch2 chan int) {
-	defer close(ch2)
-	for i := range ch1 {
-		ch2 <- i * 2
-	}
+func (c *Counter) Inc(key string) {
+	c.mux.Lock()
+	defer c.mux.Unlock()
+	c.v[key]++
 }
 
-func quadruple(ch2 chan int, ch3 chan int) {
-	defer close(ch3)
-	for i := range ch2 {
-		ch3 <- i * 4
-	}
+func (c *Counter) Value(key string) int {
+	c.mux.Lock()
+	defer c.mux.Unlock()
+	return c.v[key]
 }
 
 func main() {
-	ch1 := make(chan int)
-	ch2 := make(chan int)
-	ch3 := make(chan int)
+	c := Counter{v: make(map[string]int)}
 
-	go Producer(ch1)
-	go double(ch1, ch2)
-	go quadruple(ch2, ch3)
-	for r := range ch3 {
-		println(r)
-	}
+	go func() {
+		for i := 0; i < 100; i++ {
+			c.Inc("count")
+		}
+	}()
 
+	go func() {
+		for i := 0; i < 100; i++ {
+			c.Inc("count")
+		}
+	}()
+
+	time.Sleep(1 * time.Second)
+	fmt.Println(c, c.Value("count"))
 }
