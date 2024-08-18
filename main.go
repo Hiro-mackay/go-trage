@@ -2,42 +2,21 @@ package main
 
 import (
 	"fmt"
-	"sync"
-	"time"
 )
 
-type Counter struct {
-	v   map[string]int
-	mux sync.Mutex
-}
-
-func (c *Counter) Inc(key string) {
-	c.mux.Lock()
-	defer c.mux.Unlock()
-	c.v[key]++
-}
-
-func (c *Counter) Value(key string) int {
-	c.mux.Lock()
-	defer c.mux.Unlock()
-	return c.v[key]
+func goroutine(s []string, c chan string) {
+	sum := ""
+	for _, v := range s {
+		sum += v
+		c <- sum
+	}
 }
 
 func main() {
-	c := Counter{v: make(map[string]int)}
-
-	go func() {
-		for i := 0; i < 100; i++ {
-			c.Inc("count")
-		}
-	}()
-
-	go func() {
-		for i := 0; i < 100; i++ {
-			c.Inc("count")
-		}
-	}()
-
-	time.Sleep(1 * time.Second)
-	fmt.Println(c, c.Value("count"))
+	words := []string{"test1!", "test2!", "test3!", "test4!"}
+	c := make(chan string)
+	go goroutine(words, c)
+	for w := range c {
+		fmt.Println(w)
+	}
 }
