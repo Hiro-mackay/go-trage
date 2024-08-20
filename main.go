@@ -1,49 +1,33 @@
 package main
 
 import (
-	"encoding/json"
+	"crypto/hmac"
+	"crypto/sha256"
+	"encoding/hex"
 	"fmt"
 )
 
-type T struct{}
-
-type Person struct {
-	Name      string `json:"name"`
-	Age       int    `json:"age"`
-	Nicknames string `json:"nicknames"`
-	T         *T     `json:"T,omitempty"`
+var DB = map[string]string{
+	"YOUR_API1": "YOUR_SECRET1",
+	"YOUR_API2": "YOUR_SECRET2",
 }
 
-func (p *Person) UnmarshalJSON(b []byte) error {
-	type PersonAlias Person
-	pa := &PersonAlias{
-		T: &T{},
-	}
-	if err := json.Unmarshal(b, pa); err != nil {
-		return err
-	}
-	*p = Person(*pa)
-	p.Name = p.Name + "!"
-	return nil
-}
-
-func (p *Person) MarshalJSON() ([]byte, error) {
-	return json.Marshal(&struct {
-		Name string
-	}{
-		Name: "Mr." + p.Name,
-	})
+func Server(apiKey, sign string, data []byte) {
+	apiSecret := DB[apiKey]
+	h := hmac.New(sha256.New, []byte(apiSecret))
+	h.Write(data)
+	expectedSign := hex.EncodeToString(h.Sum(nil))
+	fmt.Println(expectedSign == sign)
 }
 
 func main() {
-	b := []byte(`{"name":"John","age":30,"nicknames":"Johny"}`)
-	var p Person
-	if err := json.Unmarshal(b, &p); err != nil {
-		fmt.Println(err)
-	}
+	const apiKey = "YOUR_API1"
+	const apiSecret = "YOUR_SECRET1"
 
-	fmt.Println(p.Name, p.Age, p.Nicknames)
-	v, _ := json.Marshal(p)
-	fmt.Println(string(v))
+	h := hmac.New(sha256.New, []byte(apiSecret))
+	h.Write([]byte("data"))
+	sign := hex.EncodeToString(h.Sum(nil))
+	fmt.Println(sign)
 
+	Server(apiKey, sign, []byte("data"))
 }
