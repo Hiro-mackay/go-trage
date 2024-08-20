@@ -1,31 +1,49 @@
 package main
 
 import (
-	"context"
+	"encoding/json"
 	"fmt"
-	"time"
 )
 
-func process(ctx context.Context, ch chan string) {
-	fmt.Println("Processing...")
-	time.Sleep(2 * time.Second)
-	fmt.Println("Done!")
-	ch <- "Done"
+type T struct{}
+
+type Person struct {
+	Name      string `json:"name"`
+	Age       int    `json:"age"`
+	Nicknames string `json:"nicknames"`
+	T         *T     `json:"T,omitempty"`
 }
-func main() {
-	ch := make(chan string)
-	ctx := context.Background()
-	ctx, cancel := context.WithTimeout(ctx, 1*time.Second)
-	defer cancel()
-	go process(ctx, ch)
-	for {
-		select {
-		case <-ctx.Done():
-			fmt.Println(ctx.Err())
-			return
-		case v := <-ch:
-			fmt.Println("Received value: ", v)
-			return
-		}
+
+func (p *Person) UnmarshalJSON(b []byte) error {
+	type PersonAlias Person
+	pa := &PersonAlias{
+		T: &T{},
 	}
+	if err := json.Unmarshal(b, pa); err != nil {
+		return err
+	}
+	*p = Person(*pa)
+	p.Name = p.Name + "!"
+	return nil
+}
+
+func (p *Person) MarshalJSON() ([]byte, error) {
+	return json.Marshal(&struct {
+		Name string
+	}{
+		Name: "Mr." + p.Name,
+	})
+}
+
+func main() {
+	b := []byte(`{"name":"John","age":30,"nicknames":"Johny"}`)
+	var p Person
+	if err := json.Unmarshal(b, &p); err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(p.Name, p.Age, p.Nicknames)
+	v, _ := json.Marshal(p)
+	fmt.Println(string(v))
+
 }
