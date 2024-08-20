@@ -2,3 +2,5 @@ github.com/markcheno/go-quote v0.0.0-20240225224950-d942c652292c h1:2pDdFX61AcQG
 github.com/markcheno/go-quote v0.0.0-20240225224950-d942c652292c/go.mod h1:XkWzl73UMsPUypTth1MHbTnSW6ydpD5qHdearJq3eaI=
 github.com/markcheno/go-talib v0.0.0-20190307022042-cd53a9264d70 h1:+iG37/Aw61Oc+ZJ4DSxQF2+K0e4ZiMidI7ytWuW4/cI=
 github.com/markcheno/go-talib v0.0.0-20190307022042-cd53a9264d70/go.mod h1:xsYvOKWtDWoDV0kdN3U8tYZ4lVrhjqf64cJRzR4ScTI=
+github.com/mattn/go-sqlite3 v1.14.22 h1:2gZY6PC6kBnID23Tichd1K+Z0oS6nE/XwU+Vz/5o4kU=
+github.com/mattn/go-sqlite3 v1.14.22/go.mod h1:Uh1q+B4BYcTPb+yiD3kU8Ct7aC0hY9fxUwlHK0RXw+Y=
