@@ -1,3 +1,5 @@
+github.com/gorilla/websocket v1.5.3 h1:saDtZ6Pbx/0u+bgYQ3q96pZgCzfhKXGPqt7kZ72aNNg=
+github.com/gorilla/websocket v1.5.3/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/markcheno/go-quote v0.0.0-20240225224950-d942c652292c h1:2pDdFX61AcQGQx6FswUdrb/+lFdgMA2uoP0YpRct18U=
 github.com/markcheno/go-quote v0.0.0-20240225224950-d942c652292c/go.mod h1:XkWzl73UMsPUypTth1MHbTnSW6ydpD5qHdearJq3eaI=
 github.com/markcheno/go-talib v0.0.0-20190307022042-cd53a9264d70 h1:+iG37/Aw61Oc+ZJ4DSxQF2+K0e4ZiMidI7ytWuW4/cI=
