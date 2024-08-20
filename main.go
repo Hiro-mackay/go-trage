@@ -1,11 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"go-trade/config"
+	"go-trade/utils"
+	"log"
 )
 
 func main() {
-	fmt.Println(config.Config.ApiKey)
-	fmt.Println(config.Config.ApiSecret)
+	utils.LoggingSettings(config.Config.LogFile)
+	log.Println("test")
+
 }
