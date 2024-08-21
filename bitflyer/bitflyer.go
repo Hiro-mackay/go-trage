@@ -34,7 +34,7 @@ func New(key, secret string) *APIClient {
 	return apiClient
 }
 
-func (api APIClient) header(method, endpoint string, body []byte) map[string]string {
+func (api *APIClient) header(method, endpoint string, body []byte) map[string]string {
 	timestamp := strconv.FormatInt(time.Now().Unix(), 10)
 	message := timestamp + method + endpoint + string(body)
 	mac := hmac.New(sha256.New, []byte(api.secret))
@@ -48,7 +48,7 @@ func (api APIClient) header(method, endpoint string, body []byte) map[string]str
 	}
 }
 
-func (api APIClient) doRequest(method, urlPath string, query map[string]string, data []byte) (body []byte, err error) {
+func (api *APIClient) doRequest(method, urlPath string, query map[string]string, data []byte) (body []byte, err error) {
 	baseURL, err := url.Parse(baseURL)
 	if err != nil {
 		return
@@ -95,7 +95,7 @@ type Balance struct {
 	Available   float64 `json:"available"`
 }
 
-func (api APIClient) GetBalance() ([]Balance, error) {
+func (api *APIClient) GetBalance() ([]Balance, error) {
 	url := "me/getbalance"
 	resp, err := api.doRequest("GET", url, map[string]string{}, nil)
 	log.Printf("url=%s resp=%s", url, string(resp))
@@ -146,7 +146,7 @@ func (t *Ticker) TruncateDateTime(duration time.Duration) time.Time {
 	return t.DateTime().Truncate(duration)
 }
 
-func (api APIClient) GetTicker(productCode string) (*Ticker, error) {
+func (api *APIClient) GetTicker(productCode string) (*Ticker, error) {
 	url := "ticker"
 	resp, err := api.doRequest("GET", url, map[string]string{
 		"product_code": productCode,
@@ -176,7 +176,7 @@ type SubscribeParams struct {
 	Channel string `json:"channel"`
 }
 
-func (api APIClient) GetRealTimeTicker(symbol string, ch chan<- Ticker) {
+func (api *APIClient) GetRealTimeTicker(symbol string, ch chan<- Ticker) {
 	u := url.URL{Scheme: "wss", Host: "ws.lightstream.bitflyer.com", Path: "/json-rpc"}
 	log.Printf("connecting to %s", u.String())
 
@@ -219,4 +219,66 @@ OUTER:
 			}
 		}
 	}
+}
+
+type Order struct {
+	ID                     int     `json:"id"`
+	ChildOrderID           string  `json:"child_order_id"`
+	ProductCode            string  `json:"product_code"`
+	Side                   string  `json:"side"`
+	ChildOrderType         string  `json:"child_order_type"`
+	Price                  int     `json:"price"`
+	AveragePrice           int     `json:"average_price"`
+	Size                   float64 `json:"size"`
+	ChildOrderState        string  `json:"child_order_state"`
+	ExpireDate             string  `json:"expire_date"`
+	ChildOrderDate         string  `json:"child_order_date"`
+	ChildOrderAcceptanceID string  `json:"child_order_acceptance_id"`
+	OutstandingSize        int     `json:"outstanding_size"`
+	CancelSize             int     `json:"cancel_size"`
+	ExecutedSize           float64 `json:"executed_size"`
+	TotalCommission        int     `json:"total_commission"`
+	TimeInForce            string  `json:"time_in_force"`
+	Status                 string  `json:"status"`
+	ErrorMessage           string  `json:"error_message"`
+	MinuteToExpires        int     `json:"minute_to_expire"`
+	Count                  int     `json:"count"`
+	Before                 int     `json:"before"`
+	After                  int     `json:"after"`
+}
+
+type ResponseSendChildOrder struct {
+	ChildOrderAcceptanceID string `json:"child_order_acceptance_id"`
+}
+
+func (api *APIClient) SendOrder(order *Order) (*ResponseSendChildOrder, error) {
+	url := "me/sendchildorder"
+	body, err := json.Marshal(order)
+	if err != nil {
+		return nil, err
+	}
+	resp, err := api.doRequest("POST", url, map[string]string{}, body)
+	if err != nil {
+		return nil, err
+	}
+	var response ResponseSendChildOrder
+	err = json.Unmarshal(resp, &response)
+	if err != nil {
+		return nil, err
+	}
+	return &response, nil
+}
+
+func (api *APIClient) ListOrder(query map[string]string) ([]Order, error) {
+	url := "me/getchildorders"
+	resp, err := api.doRequest("GET", url, query, nil)
+	if err != nil {
+		return nil, err
+	}
+	var orders []Order
+	err = json.Unmarshal(resp, &orders)
+	if err != nil {
+		return nil, err
+	}
+	return orders, nil
 }
