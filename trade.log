@@ -162,3 +162,5 @@ created by net/http.(*Server).Serve in goroutine 1
 2024/08/31 12:27:04 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
 2024/08/31 12:29:02 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
 2024/08/31 12:33:16 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 12:35:16 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 12:35:51 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
