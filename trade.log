@@ -109,3 +109,51 @@
 2024/08/31 11:19:49 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
 2024/08/31 11:30:35 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
 2024/08/31 11:31:35 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 11:55:33 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 11:55:40 server.go:3489: http: panic serving [::1]:56271: runtime error: invalid memory address or nil pointer dereference
+goroutine 5 [running]:
+net/http.(*conn).serve.func1()
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:1947 +0x118
+panic({0x1053ee780?, 0x1056b0d20?})
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/runtime/panic.go:785 +0xf0
+go-trade/app/models.(*DataFrameCandle).AddSma(0x0, 0x7)
+	/Users/mackay/Repository/github.com/Hiro-mackay/go-trade/app/models/dfcandle.go:67 +0x2c
+go-trade/app/controllers.apiCandleHandler({0x10545d0c8, 0x14000246620}, 0x140002348c0)
+	/Users/mackay/Repository/github.com/Hiro-mackay/go-trade/app/controllers/webserver.go:71 +0x3ec
+go-trade/app/controllers.apiMakeHandler.func1({0x10545d0c8, 0x14000246620}, 0x140002348c0)
+	/Users/mackay/Repository/github.com/Hiro-mackay/go-trade/app/controllers/webserver.go:30 +0x7c
+net/http.HandlerFunc.ServeHTTP(0x140001112a0, {0x10545d0c8, 0x14000246620}, 0x140002348c0)
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:2220 +0x40
+net/http.(*ServeMux).ServeHTTP(0x1056fd1c0, {0x10545d0c8, 0x14000246620}, 0x140002348c0)
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:2747 +0x2dc
+net/http.serverHandler.ServeHTTP({0x140001981e0}, {0x10545d0c8, 0x14000246620}, 0x140002348c0)
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:3210 +0x2b0
+net/http.(*conn).serve(0x140000fe360, {0x10545d7e8, 0x140000a26e0})
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:2092 +0x1604
+created by net/http.(*Server).Serve in goroutine 1
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:3360 +0x88c
+2024/08/31 11:55:40 server.go:3489: http: panic serving [::1]:56273: runtime error: invalid memory address or nil pointer dereference
+goroutine 42 [running]:
+net/http.(*conn).serve.func1()
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:1947 +0x118
+panic({0x1053ee780?, 0x1056b0d20?})
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/runtime/panic.go:785 +0xf0
+go-trade/app/models.(*DataFrameCandle).AddSma(0x0, 0x7)
+	/Users/mackay/Repository/github.com/Hiro-mackay/go-trade/app/models/dfcandle.go:67 +0x2c
+go-trade/app/controllers.apiCandleHandler({0x10545d0c8, 0x140002467e0}, 0x14000234a00)
+	/Users/mackay/Repository/github.com/Hiro-mackay/go-trade/app/controllers/webserver.go:71 +0x3ec
+go-trade/app/controllers.apiMakeHandler.func1({0x10545d0c8, 0x140002467e0}, 0x14000234a00)
+	/Users/mackay/Repository/github.com/Hiro-mackay/go-trade/app/controllers/webserver.go:30 +0x7c
+net/http.HandlerFunc.ServeHTTP(0x140001112a0, {0x10545d0c8, 0x140002467e0}, 0x14000234a00)
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:2220 +0x40
+net/http.(*ServeMux).ServeHTTP(0x1056fd1c0, {0x10545d0c8, 0x140002467e0}, 0x14000234a00)
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:2747 +0x2dc
+net/http.serverHandler.ServeHTTP({0x140001981e0}, {0x10545d0c8, 0x140002467e0}, 0x14000234a00)
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:3210 +0x2b0
+net/http.(*conn).serve(0x140002307e0, {0x10545d7e8, 0x1400023c870})
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:2092 +0x1604
+created by net/http.(*Server).Serve in goroutine 1
+	/Users/mackay/.local/share/mise/installs/go/1.23.0/go/src/net/http/server.go:3360 +0x88c
+2024/08/31 11:57:42 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 11:59:28 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 11:59:58 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
