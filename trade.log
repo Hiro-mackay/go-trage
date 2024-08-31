@@ -5,3 +5,94 @@
 2024/08/20 21:27:23 bitflyer.go:137: action=DateTime err=parsing time "2024-08-20T12:27:12.17" as "2006-01-02T15:04:05Z07:00": cannot parse "" as "Z07:00"
 2024/08/20 21:27:23 bitflyer.go:137: action=DateTime err=parsing time "2024-08-20T12:27:12.17" as "2006-01-02T15:04:05Z07:00": cannot parse "" as "Z07:00"
 2024/08/20 21:57:34 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 09:08:24 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 09:12:02 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 09:12:03 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:03.1469736Z 2.1016432e+07 8.657362e+06 8.663643e+06 0.02 0.0173102 274.07504365 302.27873949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:03 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:03.7723234Z 2.1016447e+07 8.657364e+06 8.66364e+06 0.02 0.02 274.10798551 302.34073949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:04 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:04.2787164Z 2.1016459e+07 8.65737e+06 8.663637e+06 0.02 0.02 274.08798551 302.29873949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:05 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:05.0173021Z 2.1016477e+07 8.657372e+06 8.663647e+06 0.088 0.28376951 274.14498551 302.25922929 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:05 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:05.6109237Z 2.1016488e+07 8.657377e+06 8.663644e+06 0.02 0.0173102 274.11761791 302.27653949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:06 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:06.150206Z 2.1016502e+07 8.657362e+06 8.663641e+06 0.02 0.02 274.09717381 302.29653949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:06 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:06.7030026Z 2.1016506e+07 8.657363e+06 8.663641e+06 0.088 0.02 274.18591321 302.27922929 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:07 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:07.2266979Z 2.1016511e+07 8.657363e+06 8.663638e+06 0.088 0.02 274.18517381 302.29653949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:08 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:07.9495345Z 2.1016521e+07 8.657367e+06 8.663644e+06 0.02 0.0173102 274.10098551 302.27653949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:08 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:08.5797337Z 2.1016535e+07 8.657368e+06 8.663643e+06 0.02 0.0173102 274.09717381 302.27653949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:09 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:09.1087553Z 2.1016543e+07 8.657371e+06 8.66364e+06 0.02 0.02 274.11757001 302.29653949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:09 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:09.6600187Z 2.101655e+07 8.657372e+06 8.66364e+06 0.088 0.02 274.14557001 302.27922929 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:10 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:10.2105646Z 2.1016565e+07 8.657374e+06 8.663639e+06 0.108 0.024 274.20398551 302.30053949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:11 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:10.8759441Z 2.1016578e+07 8.657377e+06 8.663639e+06 0.02 0.024 274.13796611 302.30053949 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:11 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:11.4190749Z 2.1016594e+07 8.657381e+06 8.663546e+06 0.02 0.02 274.09796611 302.40356929 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:12 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:12.0749022Z 2.1016603e+07 8.657362e+06 8.663542e+06 0.02 0.02 274.09836221 302.42087969 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:12:12 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:12.7431013Z 2.1016606e+07 8.657362e+06 8.663542e+06 0.02 0.02 274.09598551 302.42087969 0 0 8.658509e+06 917.09124719 917.09124719}
+2024/08/31 09:16:33 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 09:16:34 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:34 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:34 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:35 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:35 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:35 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:36 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:36 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:36 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:36 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:36 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:36 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:37 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:37 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:37 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:38 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:38 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:38 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:38 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:38 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:38 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:39 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:39 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:39 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:40 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:40 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:40 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:40 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:40 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:40 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:41 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:41 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:41 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:42 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:42 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:42 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:16:43 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1s has no column named hight
+2024/08/31 09:16:43 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1m0s has no column named hight
+2024/08/31 09:16:43 candle.go:80: Error - CreateCandleWithDuration : table BTC_JPY_1h0m0s has no column named hight
+2024/08/31 09:20:46 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 09:20:47 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:47 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:47 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:48 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:48 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:48 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:48 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:48 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:49 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:49 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:50 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:50 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:50 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:50 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:50 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:51 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:51 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:51 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:51 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:51 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:52 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:52 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:52 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:52 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:52 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:53 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:53 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:53 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:53 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:20:53 candle.go:60: Error - Candle Save : near "WHERE": syntax error
+2024/08/31 09:22:06 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
