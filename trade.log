@@ -5,6 +5,7 @@
 2024/08/20 21:27:23 bitflyer.go:137: action=DateTime err=parsing time "2024-08-20T12:27:12.17" as "2006-01-02T15:04:05Z07:00": cannot parse "" as "Z07:00"
 2024/08/20 21:27:23 bitflyer.go:137: action=DateTime err=parsing time "2024-08-20T12:27:12.17" as "2006-01-02T15:04:05Z07:00": cannot parse "" as "Z07:00"
 2024/08/20 21:57:34 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+<<<<<<< HEAD
 2024/08/31 09:08:24 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
 2024/08/31 09:12:02 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
 2024/08/31 09:12:03 streamdate.go:17: action=StreamIngestionData, {BTC_JPY RUNNING 2024-08-31T00:12:03.1469736Z 2.1016432e+07 8.657362e+06 8.663643e+06 0.02 0.0173102 274.07504365 302.27873949 0 0 8.658509e+06 917.09124719 917.09124719}
@@ -166,3 +167,5 @@ created by net/http.(*Server).Serve in goroutine 1
 2024/08/31 12:35:51 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
 2024/08/31 12:38:48 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
 2024/08/31 12:42:31 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+=======
+>>>>>>> 3764090 (json rpc)
