@@ -96,3 +96,16 @@
 2024/08/31 09:20:53 candle.go:60: Error - Candle Save : near "WHERE": syntax error
 2024/08/31 09:20:53 candle.go:60: Error - Candle Save : near "WHERE": syntax error
 2024/08/31 09:22:06 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 10:33:14 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 10:33:55 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 10:34:16 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 10:35:34 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 10:50:47 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 10:52:17 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 10:52:58 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 10:53:58 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 11:05:52 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 11:19:05 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 11:19:49 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 11:30:35 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc
+2024/08/31 11:31:35 bitflyer.go:181: connecting to wss://ws.lightstream.bitflyer.com/json-rpc

@@ -12,13 +12,16 @@ func StreamIngestionData() {
 	go apiClient.GetRealTimeTicker(
 		config.Config.ProductCode, tickerChannel,
 	)
-	for ticker := range tickerChannel {
-		for _, duration := range config.Config.Durations {
-			isCreate := models.CreateCandleWithDuration(ticker, ticker.ProductCode, duration)
-			if isCreate && duration == config.Config.TradeDuration {
-				// TODO
-			}
 
+	go func() {
+		for ticker := range tickerChannel {
+			for _, duration := range config.Config.Durations {
+				isCreate := models.CreateCandleWithDuration(ticker, ticker.ProductCode, duration)
+				if isCreate && duration == config.Config.TradeDuration {
+					// TODO
+				}
+
+			}
 		}
-	}
+	}()
 }

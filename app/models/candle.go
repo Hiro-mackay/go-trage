@@ -8,14 +8,14 @@ import (
 )
 
 type Candle struct {
-	ProductCode string
-	Duration    time.Duration
-	Time        time.Time
-	Open        float64
-	Close       float64
-	High        float64
-	Low         float64
-	Volume      float64
+	ProductCode string        `json:"product_code"`
+	Duration    time.Duration `json:"duration"`
+	Time        time.Time     `json:"time"`
+	Open        float64       `json:"open"`
+	Close       float64       `json:"close"`
+	High        float64       `json:"high"`
+	Low         float64       `json:"low"`
+	Volume      float64       `json:"volume"`
 }
 
 func NewCandle(
@@ -94,4 +94,37 @@ func CreateCandleWithDuration(ticker bitflyer.Ticker, productCode string, durati
 	currentCandle.Close = price
 	currentCandle.Save()
 	return false
+}
+
+func GetAllCandle(productCode string, duration time.Duration, limit int) (dfCandle *DataFrameCandle, err error) {
+	tableName := GetCandleTableName(productCode, duration)
+	cmd := fmt.Sprintf("SELECT time, open, close, high, low, volume FROM %s ORDER BY time ASC LIMIT ?", tableName)
+	rows, err := DbConnection.Query(cmd, limit)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	dfCandle = &DataFrameCandle{
+		ProductCode: productCode,
+		Duration:    duration,
+	}
+
+	for rows.Next() {
+		var c Candle
+		c.ProductCode = productCode
+		c.Duration = duration
+		err = rows.Scan(&c.Time, &c.Open, &c.Close, &c.High, &c.Low, &c.Volume)
+		if err != nil {
+			return nil, err
+		}
+		dfCandle.Candles = append(dfCandle.Candles, c)
+	}
+
+	err = rows.Err()
+	if err != nil {
+		return nil, err
+	}
+	return dfCandle, nil
+
 }
